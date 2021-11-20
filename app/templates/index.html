@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Phishing URL Detector</title>
+        <style>
+            input[type="text"] {
+                font-size: 26px;
+                width: 80%;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Phishing URL Detector</h1>
+        <hr />
+        <form action="/" method="POST">
+            <input type="text" name="url" />
+            <input type="submit" name="check" />
+        </form>
+        <b>Status:</b> <code>{{ message }}</code>
+        <hr/>
+        <table>
+            <tr>
+                <th>URL</th>
+                <th>Prediction</th>
+            </tr>
+        {% for record in recent %}
+            <tr>
+                <td>{{ record }}</td>
+                <td>{{ recent[record] }}</td>
+            </tr>
+        {% endfor%}
+        </table>
+    </body>
+</html>

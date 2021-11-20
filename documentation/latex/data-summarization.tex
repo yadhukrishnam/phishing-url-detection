@@ -1,0 +1,101 @@
+ We have 11430 rows and 34 columns.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{14}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{df}\PY{o}{.}\PY{n}{shape}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{14}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+(11430, 34)
+\end{Verbatim}
+\end{tcolorbox}
+        
+    We can also notice that the dataset is balanced and there are 50\%
+legitimate URLs and 50\% phishing URLs.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{15}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{df}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{status}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{size}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{15}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+status
+0.0    5715
+1.0    5715
+dtype: int64
+\end{Verbatim}
+\end{tcolorbox}
+        
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{16}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{df}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{16}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+         length\_url  length\_hostname            ip       nb\_dots  \textbackslash{}
+count  11430.000000     11430.000000  11430.000000  11430.000000
+mean       0.030158         0.081382      0.150569      0.064381
+std        0.033946         0.051320      0.357644      0.059552
+min        0.000000         0.000000      0.000000      0.000000
+25\%        0.012891         0.052381      0.000000      0.043478
+50\%        0.021486         0.071429      0.000000      0.043478
+75\%        0.036219         0.095238      0.000000      0.086957
+max        1.000000         1.000000      1.000000      1.000000
+
+         nb\_hyphens         nb\_at         nb\_qm        nb\_and    nb\_or  \textbackslash{}
+count  11430.000000  11430.000000  11430.000000  11430.000000  11430.0
+mean       0.023199      0.005556      0.047069      0.008542      0.0
+std        0.048537      0.038875      0.121485      0.043228      0.0
+min        0.000000      0.000000      0.000000      0.000000      0.0
+25\%        0.000000      0.000000      0.000000      0.000000      0.0
+50\%        0.000000      0.000000      0.000000      0.000000      0.0
+75\%        0.023256      0.000000      0.000000      0.000000      0.0
+max        1.000000      1.000000      1.000000      1.000000      0.0
+
+              nb\_eq  {\ldots}          port   tld\_in\_path      punycode  \textbackslash{}
+count  11430.000000  {\ldots}  11430.000000  11430.000000  11430.000000
+mean       0.015430  {\ldots}      0.002362      0.065617      0.000350
+std        0.052543  {\ldots}      0.048547      0.247622      0.018705
+min        0.000000  {\ldots}      0.000000      0.000000      0.000000
+25\%        0.000000  {\ldots}      0.000000      0.000000      0.000000
+50\%        0.000000  {\ldots}      0.000000      0.000000      0.000000
+75\%        0.000000  {\ldots}      0.000000      0.000000      0.000000
+max        1.000000  {\ldots}      1.000000      1.000000      1.000000
+
+       shortening\_service  tld\_in\_subdomain  abnormal\_subdomain  \textbackslash{}
+count        11430.000000      11430.000000        11430.000000
+mean             0.123447          0.050131            0.021610
+std              0.328964          0.218225            0.145412
+min              0.000000          0.000000            0.000000
+25\%              0.000000          0.000000            0.000000
+50\%              0.000000          0.000000            0.000000
+75\%              0.000000          0.000000            0.000000
+max              1.000000          1.000000            1.000000
+
+       nb\_subdomains   char\_repeat  path\_extension        status
+count   11430.000000  11430.000000    11430.000000  11430.000000
+mean        0.615836      0.020051        0.000175      0.500000
+std         0.318534      0.032664        0.013227      0.500022
+min         0.000000      0.000000        0.000000      0.000000
+25\%         0.500000      0.006849        0.000000      0.000000
+50\%         0.500000      0.020548        0.000000      0.500000
+75\%         1.000000      0.027397        0.000000      1.000000
+max         1.000000      1.000000        1.000000      1.000000
+
+[8 rows x 34 columns]
+\end{Verbatim}
+\end{tcolorbox}
+\newpage
